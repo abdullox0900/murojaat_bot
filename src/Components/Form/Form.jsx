@@ -47,9 +47,10 @@ function Form() {
         };
 
         if (userName == '' || userTell == '' || userComment == '' || userEmail == '' || userMap == '' || cityId == '') {
-            Swal.fire(
-                `Ma'lumot Toldrin`,
-            )
+            Swal.fire({
+                title: `Ma'lumot Toldrin`,
+                confirmButtonColor: ' #152340',
+            })
         } else {
             fetch('https://bot.ali98.uz/api/send', requestOptions)
                 .then(response => {
@@ -60,6 +61,7 @@ function Form() {
                             title: `Ma'lumot jonatildi tez orada sizblan bog'lanamiz`,
                             showConfirmButton: false,
                             timer: 10000,
+                            confirmButtonColor: ' #152340',
                         })
                         setCityId('')
                         setUserName('')
@@ -71,12 +73,14 @@ function Form() {
                         Swal.fire({
                             icon: 'error',
                             title: 'Xatolik Yuzberdi',
+                            confirmButtonColor: ' #152340',
                         })
                     }
                 })
                 .catch(error => Swal.fire({
                     icon: 'error',
                     title: 'Xatolik Yuzberdi',
+                    confirmButtonColor: ' #152340',
                 }));
         }
     }
@@ -106,7 +110,7 @@ function Form() {
                     <Input placeholder="Ism Sharf" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} value={userName} onChange={(e) => setUserName(e.target.value)} />
                     <Input placeholder="Telefon raqam *" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} value={userTell} onChange={(e) => setUserTell(e.target.value)} />
                     <Input placeholder="Email" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} value={userEmail} onChange={(e) => setUserEmail(e.target.value)} />
-                    <Input placeholder="Manzil" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} value={userMap} onChange={(e) => setUserMap(e.target.value)} />
+                    <Input placeholder="Qaysi xorijiy davlat va shahardasiz" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} value={userMap} onChange={(e) => setUserMap(e.target.value)} />
                     <textarea className="form-curs__textarea" cols="20" rows="7" placeholder="Mavzu" value={userComment} onChange={(e) => setUserComment(e.target.value)}></textarea>
 
                     <div className="curs-form__sub-btn">

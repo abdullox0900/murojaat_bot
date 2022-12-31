@@ -9,8 +9,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Menu />} />
-        <Route path='/form' element={<Form />} />
+        <Route path='/' element={<Form />} />
       </Routes>
     </>
   );
