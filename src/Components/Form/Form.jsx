@@ -19,13 +19,6 @@ function Form() {
         setCityId(value)
     };
 
-    console.log(cityId);
-    console.log(userName);
-    console.log(userTell);
-    console.log(userEmail);
-    console.log(userComment);
-    console.log(userMap);
-
     useEffect(() => {
         fetch("https://bot.ali98.uz/api/hudut")
             .then((res) => res.json())
@@ -46,12 +39,6 @@ function Form() {
         formdata.append("message", userComment);
         formdata.append("hudud_id", cityId);
 
-//         formdata.append("phone", "456564");
-// formdata.append("name", "name");
-// formdata.append("subject", "mavzu");
-// formdata.append("message", "text ");
-// formdata.append("hudud_id", "2");
-
         var requestOptions = {
             method: 'POST',
             body: formdata,
@@ -59,7 +46,7 @@ function Form() {
             redirect: 'follow'
         };
 
-        if (userName == '' || userTell == '' || userComment == '') {
+        if (userName == '' || userTell == '' || userComment == '' || userEmail == '' || userMap == '' || cityId == '') {
             Swal.fire(
                 `Ma'lumot Toldrin`,
             )
@@ -74,7 +61,12 @@ function Form() {
                             showConfirmButton: false,
                             timer: 10000,
                         })
+                        setCityId('')
                         setUserName('')
+                        setUserTell('')
+                        setUserEmail('')
+                        setUserMap('')
+                        setUserComment('')
                     }else {
                         Swal.fire({
                             icon: 'error',
@@ -110,17 +102,11 @@ function Form() {
                             })
                         }
                     />
-                        {/* const [cityId, setCityId] = useState()
-    const [userName, setUserName] = useState('');
-    const [userTell, setUserTell] = useState('');
-    const [userEmail, setUserEmail] = useState('');
-    const [userMap, setUserMat] = useState('');
-    const [userComment, setUserComment] = useState(''); */}
 
                     <Input placeholder="Ism Sharf" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} value={userName} onChange={(e) => setUserName(e.target.value)} />
-                    <Input placeholder="Telfon nomer" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} value={userTell} onChange={(e) => setUserTell(e.target.value)} />
+                    <Input placeholder="Telefon raqam *" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} value={userTell} onChange={(e) => setUserTell(e.target.value)} />
                     <Input placeholder="Email" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} value={userEmail} onChange={(e) => setUserEmail(e.target.value)} />
-                    <Input placeholder="Hozirgi Manziliz" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} value={userMap} onChange={(e) => setUserMap(e.target.value)} />
+                    <Input placeholder="Manzil" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} value={userMap} onChange={(e) => setUserMap(e.target.value)} />
                     <textarea className="form-curs__textarea" cols="20" rows="7" placeholder="Mavzu" value={userComment} onChange={(e) => setUserComment(e.target.value)}></textarea>
 
                     <div className="curs-form__sub-btn">
