@@ -75,15 +75,18 @@
         font-weight: 500;
         border: none;
         border-radius: 3px;
+        color: #fff;
         border: 1px solid #152340;
-        background-color: transparent;
+        background-color: #152340;
         cursor: pointer;
         transition: all 0.7s ease;
 
         &:hover {
-            background-color: #152340;
-            color: #fff;
-            border: 1px solid #152340;
+            opacity: 0.8;
+        }
+
+        &:active {
+            opacity: 0.6;
         }
     }
 }
