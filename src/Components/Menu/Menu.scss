@@ -3,16 +3,29 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 30%;
+        width: 250px;
+        height: 250px;
+        background: url("../../Assets/Svg/logo-grb.svg") no-repeat;
+        background-size: cover;
+    }
 
     &__link {
         padding: 10px 20px;
         font-size: 16px;
         font-weight: 600;
         text-decoration: none;
-        color: #152340;
+        color: #fff;
         border: 1px solid #152340;
+        background-color: #152340;
         border-radius: 3px;
         transition: all 0.7s ease;
+        z-index: 111;
 
         &:hover {
             background-color: #152340;

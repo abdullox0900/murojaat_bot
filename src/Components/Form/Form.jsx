@@ -81,31 +81,47 @@ function Form() {
     return (
         <Container>
             <section className="curs-form">
-                <img className="curs-form__img" src="https://thumbs.gfycat.com/SeveralConsciousFairybluebird-max-1mb.gif" alt="" />
-
+                {/* <img className="curs-form__img" src="https://thumbs.gfycat.com/SeveralConsciousFairybluebird-max-1mb.gif" alt="" /> */}
+                <h3 className="curs-form__title">Murojaat Yuborish</h3>
                 <form className="curs-form__form">
                     <Select
-                        defaultValue="Tuman"
-                        style={{ width: '100%', marginBottom: '15px',}}
+                        defaultValue="Andijon"
+                        style={{ width: '100%', marginBottom: '15px', }}
                         onChange={handleChange}
-                        // options={
-                        //     data?.map((item) => {
-                        //         return (
-                        //             {
-                        //                 value: item?.id,
-                        //                 label: item?.name,
-                        //             }
-                        //         )
-                        //     })
-                        // }
+                    // options={
+                    //     data?.map((item) => {
+                    //         return (
+                    //             {
+                    //                 value: item?.id,
+                    //                 label: item?.name,
+                    //             }
+                    //         )
+                    //     })
+                    // }
                     />
-                    <Input placeholder="Ism Sharf" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px'}} value={user} onChange={(e) => setUserName(e.target.value)} />
-                    <Input placeholder="Telfon nomer" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px'}} value={tel} onChange={onChange} />
-                    <Input placeholder="Email" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px'}} value={tel} onChange={onChange} />
-                    <textarea className="form-curs__textarea" cols="20" rows="7" placeholder="Manzil" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
+                    <Select
+                        defaultValue="Tuman"
+                        style={{ width: '100%', marginBottom: '15px', }}
+                        onChange={handleChange}
+                    // options={
+                    //     data?.map((item) => {
+                    //         return (
+                    //             {
+                    //                 value: item?.id,
+                    //                 label: item?.name,
+                    //             }
+                    //         )
+                    //     })
+                    // }
+                    />
+                    <Input placeholder="Ism Sharf" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} value={user} onChange={(e) => setUserName(e.target.value)} />
+                    <Input placeholder="Telfon nomer" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} value={tel} onChange={onChange} />
+                    <Input placeholder="Email" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} />
+                    <Input placeholder="Hozirgi Manziliz" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} />
+                    <textarea className="form-curs__textarea" cols="20" rows="7" placeholder="Mavzu" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
 
                     <div className="curs-form__sub-btn">
-                        <button className="curs-form__btn">Jonatish</button>
+                        <button className="curs-form__btn">Jo'natish</button>
                     </div>
                 </form>
             </section>

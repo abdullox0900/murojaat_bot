@@ -3,7 +3,25 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-top: 100px;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 2%;
+        right: -60px;
+        width: 300px;
+        height: 450px;
+        background: url("../../Assets/Svg/logo-grb.svg") no-repeat;
+        background-size: cover;
+    }
+
+    &__title {
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
 
     &__img {
         width: 100%;
@@ -42,12 +60,10 @@
         transition: all 0.2s;
 
         &::placeholder {
-            // color: rgb(217 217 217 / 88%);
+            color: #152340;
         }
 
         &:focus {
-            border-color: #4096ff;
-            // box-shadow: 0 0 0 2px rgb(5 145 255 / 10%);
             border-inline-end-width: 1px;
             outline: 0;
         }

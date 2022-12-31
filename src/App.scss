@@ -36,4 +36,8 @@ ul {
 .ant-input {
     border-color: #152340 !important;
     color: #152340 !important;
+
+    &::placeholder {
+        color: #152340 !important;
+    }
 }
