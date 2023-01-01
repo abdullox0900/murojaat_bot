@@ -85,6 +85,14 @@ function Form() {
         }
     }
 
+    const newData = []
+
+    if(data == {} || data == []) {
+        console.log('hech nima yok');
+    } else {
+        newData.push(data)
+    }
+
     return (
         <Container>
             <section className="curs-form">
@@ -96,7 +104,7 @@ function Form() {
                         style={{ width: '100%', marginBottom: '15px', }}
                         onChange={handleChange}
                         options={
-                            data?.map((item) => {
+                            newData?.map((item) => {
                                 return (
                                     {
                                         value: item?.id,
