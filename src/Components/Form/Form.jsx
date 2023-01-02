@@ -12,6 +12,8 @@ function Form() {
     const [userName, setUserName] = useState('');
     const [userTell, setUserTell] = useState('');
     const [userEmail, setUserEmail] = useState('');
+    const [userFaoliyat, setUserFaoliyat] = useState('');
+    const [userMazmun, setUserMazmun] = useState('');
     const [userMap, setUserMap] = useState('');
     const [userComment, setUserComment] = useState('');
 
@@ -35,7 +37,9 @@ function Form() {
         formdata.append("phone", userTell);
         formdata.append("name", userName);
         formdata.append("email", userEmail);
-        formdata.append("subject", userMap);
+        formdata.append("city", userMap);
+        formdata.append("faolyati", userFaoliyat);
+        formdata.append("mazmuni", userMazmun);
         formdata.append("message", userComment);
         formdata.append("hudud_id", cityId);
 
@@ -46,7 +50,7 @@ function Form() {
             redirect: 'follow'
         };
 
-        if (userName == '' || userTell == '' || userComment == '' || userEmail == '' || userMap == '' || cityId == '') {
+        if (userName == '' || userTell == '' || userComment == '' || userEmail == '' || userMap == '' || cityId == '' || userFaoliyat == '' || userMazmun == '') {
             Swal.fire({
                 title: `Ma'lumot Toldrin`,
                 confirmButtonColor: ' #152340',
@@ -67,6 +71,8 @@ function Form() {
                         setUserName('')
                         setUserTell('')
                         setUserEmail('')
+                        setUserFaoliyat('')
+                        setUserMazmun('')
                         setUserMap('')
                         setUserComment('')
                     }else {
@@ -85,14 +91,6 @@ function Form() {
         }
     }
 
-    const newData = []
-
-    if(data == {} || data == []) {
-        console.log('hech nima yok');
-    } else {
-        newData.push(data)
-    }
-
     return (
         <Container>
             <section className="curs-form">
@@ -104,7 +102,7 @@ function Form() {
                         style={{ width: '100%', marginBottom: '15px', }}
                         onChange={handleChange}
                         options={
-                            newData?.map((item) => {
+                            data?.map((item) => {
                                 return (
                                     {
                                         value: item?.id,
@@ -115,11 +113,48 @@ function Form() {
                         }
                     />
 
-                    <Input placeholder="Ism Sharf" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} value={userName} onChange={(e) => setUserName(e.target.value)} />
-                    <Input placeholder="Telefon raqam *" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} value={userTell} onChange={(e) => setUserTell(e.target.value)} />
-                    <Input placeholder="Email" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} value={userEmail} onChange={(e) => setUserEmail(e.target.value)} />
-                    <Input placeholder="Qaysi xorijiy davlat va shahardasiz" style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }} value={userMap} onChange={(e) => setUserMap(e.target.value)} />
-                    <textarea className="form-curs__textarea" cols="20" rows="7" placeholder="Mavzu" value={userComment} onChange={(e) => setUserComment(e.target.value)}></textarea>
+                    <Input
+                    placeholder="Ism Sharf"
+                    style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }}
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)} />
+
+                    <Input
+                    placeholder="Telefon raqam *"
+                    style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }}
+                    value={userTell}
+                    onChange={(e) => setUserTell(e.target.value)} />
+
+                    <Input
+                    placeholder="Email"
+                    style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }}
+                    value={userEmail}
+                    onChange={(e) => setUserEmail(e.target.value)} />
+
+                    <Input
+                    placeholder="Faolyat"
+                    style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }}
+                    value={userFaoliyat}
+                    onChange={(e) => setUserFaoliyat(e.target.value)} />
+
+                    <Input
+                    placeholder="Qaysi xorijiy davlat va shahardasiz"
+                    style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }}
+                    value={userMap}
+                    onChange={(e) => setUserMap(e.target.value)} />
+
+                    <Input
+                    placeholder="Murojaat mazmni"
+                    style={{ width: '100%', marginBottom: '15px', padding: '8px 10px' }}
+                    value={userMazmun}
+                    onChange={(e) => setUserMazmun(e.target.value)} />
+
+                    <textarea
+                    className="form-curs__textarea"
+                    cols="20" rows="7"
+                    placeholder="Mavzu" value={userComment}
+                    onChange={(e) => setUserComment(e.target.value)}
+                    ></textarea>
 
                     <div className="curs-form__sub-btn">
                         <button className="curs-form__btn" onClick={(e) => onSubmit(e)}>Jo'natish</button>
